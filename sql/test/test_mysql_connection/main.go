@@ -12,5 +12,6 @@ func main() {
 		fmt.Println("error:", err)
 	}
 	fmt.Println("连接成功")
+	fmt.Println("进行数据库操作")
 	defer db.Close()
 }
