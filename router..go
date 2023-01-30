@@ -7,14 +7,28 @@ func initRouter(r *gin.Engine) {
 	//r.Static("/static", "./public")
 
 	//第一层陆路由地址
-	//apiRouter := r.Group("/douyin")
+	apiRouter := r.Group("/douyin")
+	{
+		//基础接口
+		apiRouter.GET("/feed/", func(context *gin.Context) {
 
-	// 基础接口
-	//apiRouter.GET("/feed/", mapper.Feed)
-	//apiRouter.GET("/user/", mapper.UserInfo)
-	//apiRouter.POST("/user/register/", mapper.Register)
-	//apiRouter.POST("/user/login/", mapper.Login)
-	//apiRouter.POST("/publish/action/", mapper.Publish)
-	//apiRouter.GET("/publish/list/", mapper.PublishList)
+		})
+		apiRouter.GET("/user/", func(context *gin.Context) {
+
+		})
+		apiRouter.POST("/user/register/", func(context *gin.Context) {
+
+		})
+		apiRouter.POST("/user/login/", func(context *gin.Context) {
+
+		})
+		apiRouter.POST("/publish/action/", func(context *gin.Context) {
+
+		})
+		apiRouter.GET("/publish/list/", func(context *gin.Context) {
+
+		})
+
+	}
 
 }
