@@ -1,14 +1,11 @@
 package pojo
 
-import (
-	"github.com/jinzhu/gorm"
-)
-
 // Comment
 type Comment struct {
-	gorm.Model
-	UserId      int64  //评论用户id
-	VideoId     int64  //视频id
-	CommentText string //评论内容
-	Cancel      int32  //取消评论为1，发布评论为0
+	Id         int64  `json:"id,omitempty"`
+	UserId     int64  //评论用户id
+	VideoId    int64  //视频id
+	Content    string `json:"content,omitempty"`
+	CreateDate string `json:"create_date,omitempty"`
+	Cancel     int32  //取消评论为1，发布评论为0
 }

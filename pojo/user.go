@@ -1,9 +1,7 @@
 package pojo
 
-import "github.com/jinzhu/gorm"
-
 type User struct {
-	gorm.Model
-	Name     string
-	PassWord string
+	Id       int64  `json:"id,omitempty"`
+	Name     string `json:"name,omitempty"`
+	Password string `json:"pass_word,omitempty"`
 }
