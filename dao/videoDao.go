@@ -32,3 +32,14 @@ func GetVideoByAuthorId(authorId int64) ([]VideoDao, error) {
 	}
 	return videoList, nil
 }
+
+// 通过视频ID查询video
+func GetVideoByVideoId(videoID int64) (VideoDao, error) {
+	videoDao := VideoDao{Id: videoID}
+	err := DB.First(&videoDao).Error
+	if err != nil {
+		fmt.Printf(err.Error())
+		return videoDao, err
+	}
+	return videoDao, nil
+}

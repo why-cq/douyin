@@ -6,10 +6,11 @@ import (
 	"testing"
 )
 
-func init() {
-	dao.InitMySQl()
-}
+//func init() {
+//	dao.InitMySQl()
+//}
 
+// 创建video
 func TestCreatVideo(t *testing.T) {
 	ok := dao.CreateVideo(dao.VideoDao{
 		AuthorId:      3,
@@ -22,8 +23,15 @@ func TestCreatVideo(t *testing.T) {
 	fmt.Println(ok)
 }
 
+// 通过用户ID查询video
 func TestGetVideoByAuthorId(t *testing.T) {
 	videoList, err := dao.GetVideoByAuthorId(2)
 	fmt.Println(videoList)
+	fmt.Println(err)
+}
+
+func TestGetVideoByVideoId(t *testing.T) {
+	video1, err := dao.GetVideoByVideoId(1)
+	fmt.Println(video1)
 	fmt.Println(err)
 }
