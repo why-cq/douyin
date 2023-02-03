@@ -12,7 +12,7 @@ func init() {
 
 func TestCreatUsers(t *testing.T) {
 	ok := dao.CreatUser(dao.UserDao{
-		Name:     "xixi",
+		UserName: "xixi",
 		Password: "123456",
 	})
 	if ok {

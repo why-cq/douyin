@@ -1,4 +1,4 @@
 package service
 
-type VideoService struct {
+type VideoService interface {
 }

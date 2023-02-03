@@ -1,4 +1,4 @@
 package service
 
-type FollowService struct {
+type FollowService interface {
 }

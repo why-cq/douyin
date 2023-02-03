@@ -1,4 +1,4 @@
 package service
 
-type CommentService struct {
+type CommentService interface {
 }

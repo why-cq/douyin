@@ -8,7 +8,7 @@ import (
 
 /*	type UserDao struct {
 	Id       int64
-	Name     string
+	UserName     string
 	Password string
 }*/
 // UserDao 对应数据库users表

@@ -1,4 +1,4 @@
 package service
 
-type LikeService struct {
+type LikeService interface {
 }
