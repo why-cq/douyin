@@ -23,7 +23,7 @@ func CreateLike(likeDao LikeDao) error {
 
 // 根据userID和videoID查找点赞信息
 
-func FindLike(userID int64, videoId int64) (LikeDao, error) {
+func GetLike(userID int64, videoId int64) (LikeDao, error) {
 	likeDao := LikeDao{}
 	err := DB.Where("user_id = ? AND video_id = ?", userID, videoId).Find(&likeDao).Error
 	if err != nil {
@@ -36,7 +36,7 @@ func FindLike(userID int64, videoId int64) (LikeDao, error) {
 // 根据userID和videoID更新点赞信息(取消或者点赞)
 func UpdateLike(userID int64, videoId int64) error {
 	// 先查询是否存在点赞记录
-	likeDao, err := FindLike(userID, videoId)
+	likeDao, err := GetLike(userID, videoId)
 	if err != nil {
 		fmt.Println("点赞记录不存在")
 		return err

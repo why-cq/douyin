@@ -38,7 +38,7 @@ func GetFollowersByUserId(userId int64) (int64, error) {
 }
 
 // 通过userId和FollowId查询关注信息
-func FindFollowInf(userId int64, followId int64) (FollowDao, error) {
+func GetFollowInf(userId int64, followId int64) (FollowDao, error) {
 	followDao := FollowDao{UserId: userId, FollowerId: followId}
 	err := DB.Where("user_id = ? AND follower_id = ?", userId, followId).
 		Find(&followDao).
@@ -52,7 +52,7 @@ func FindFollowInf(userId int64, followId int64) (FollowDao, error) {
 
 // 关注和取消关注(通过userId和FollowId)
 func UpdateFollow(userId int64, followId int64) (bool, error) {
-	followDao, err := FindFollowInf(userId, followId)
+	followDao, err := GetFollowInf(userId, followId)
 	if err != nil {
 		fmt.Println("关注信息不存在")
 		return false, err

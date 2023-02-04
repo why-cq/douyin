@@ -38,3 +38,13 @@ func (UserServiceImpl) GetUserByUserName(username string) dao.UserDao {
 	fmt.Println("获取用户成功")
 	return userDao
 }
+
+func (UserServiceImpl) GetUsers() []dao.UserDao {
+	userDaos, err := dao.GetUsers()
+	if err != nil {
+		fmt.Println("获取全部用户失败")
+		return userDaos
+	}
+	fmt.Println("获取全部用户成功")
+	return userDaos
+}

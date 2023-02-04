@@ -18,13 +18,13 @@ func TestCreatComment(t *testing.T) {
 }
 
 func TestFindCommentByVideoId(t *testing.T) {
-	count, err := dao.FindCommentByVideoId(1)
+	count, err := dao.GetCommentByVideoId(1)
 	fmt.Println(count)
 	fmt.Println(err)
 }
 
 func TestFindCommentById(t *testing.T) {
-	commentDao, err := dao.FindCommentById(1)
+	commentDao, err := dao.GetCommentById(1)
 	fmt.Println(commentDao)
 	fmt.Println(err)
 }

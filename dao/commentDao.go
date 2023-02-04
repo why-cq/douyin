@@ -22,7 +22,7 @@ func CreatComment(commentDao CommentDao) (bool, error) {
 }
 
 // 通过视频Id查询评论数量
-func FindCommentByVideoId(videoId int64) (int64, error) {
+func GetCommentByVideoId(videoId int64) (int64, error) {
 	var count int64
 	err := DB.Model(CommentDao{}).Where("video_id = ?", videoId).Count(&count).Error
 	if err != nil {
@@ -33,7 +33,7 @@ func FindCommentByVideoId(videoId int64) (int64, error) {
 }
 
 // 通过ID查询评论
-func FindCommentById(id int64) (CommentDao, error) {
+func GetCommentById(id int64) (CommentDao, error) {
 	var commentDao CommentDao
 	err := DB.Where("id = ?", id).Find(&commentDao).Error
 	if err != nil {
@@ -45,7 +45,7 @@ func FindCommentById(id int64) (CommentDao, error) {
 
 // 通过主键删除(恢复)评论
 func DeleteComment(id int64) (bool, error) {
-	commentDao, err := FindCommentById(id)
+	commentDao, err := GetCommentById(id)
 	if err != nil {
 		fmt.Println(err)
 		return false, err

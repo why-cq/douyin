@@ -10,7 +10,7 @@ type UserResponse struct {
 	pojo.Response
 }
 
-var USI service.UserServiceImpl
+var USI service.userServiceImpl
 
 // localhost:8080/register post方法?username=&password="
 func Register(c *gin.Context) {

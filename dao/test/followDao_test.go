@@ -26,7 +26,7 @@ func TestGetFollowersByUserId(t *testing.T) {
 }
 
 func TestFindFollowInf(t *testing.T) {
-	followDao, err := dao.FindFollowInf(1, 8)
+	followDao, err := dao.GetFollowInf(1, 8)
 	fmt.Println(followDao)
 	fmt.Println(err)
 }

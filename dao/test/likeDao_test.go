@@ -21,7 +21,7 @@ func TestCreateLike(t *testing.T) {
 }
 
 func TestFindLike(t *testing.T) {
-	likeDao, err := dao.FindLike(1, 234)
+	likeDao, err := dao.GetLike(1, 234)
 	fmt.Println(likeDao)
 	fmt.Println(err)
 }
