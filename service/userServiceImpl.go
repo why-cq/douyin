@@ -29,7 +29,7 @@ func (UserServiceImpl) GetUserById(id int64) dao.UserDao {
 	return userDao
 }
 
-func (UserServiceImpl) GetUserByUserName(username string) dao.UserDao {
+func (USI *UserServiceImpl) GetUserByUserName(username string) dao.UserDao {
 	userDao, err := dao.GetUserByUsername(username)
 	if err != nil {
 		fmt.Println("获取用户失败")

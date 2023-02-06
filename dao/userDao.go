@@ -56,7 +56,7 @@ func GetUserByUserid(id int64) (UserDao, error) {
 // 通过用户名获取用户
 func GetUserByUsername(username string) (UserDao, error) {
 	UserDao := UserDao{}
-	err := DB.Where("name = ?", username).First(&UserDao).Error
+	err := DB.Where("user_name = ?", username).First(&UserDao).Error
 	if err != nil {
 		log.Printf(err.Error())
 		return UserDao, err
