@@ -17,13 +17,23 @@ func (FollowServiceImpl) CreatFollowInf(followDao dao.FollowDao) error {
 	return nil
 }
 
-func (FollowServiceImpl) GetFollowersByUserId(userId int64) (int64, error) {
-	count, err := dao.GetFollowersByUserId(userId)
+func (FollowServiceImpl) GetFansByUserId(userId int64) (int64, error) {
+	count, err := dao.GetFansByUserId(userId)
 	if err != nil {
 		fmt.Println("获取粉丝数失败")
 		return 0, err
 	}
 	fmt.Println("获取粉丝数成功")
+	return count, err
+}
+
+func (FollowServiceImpl) GetFollowersByUserId(userId int64) (int64, error) {
+	count, err := dao.GetFollowerCountByUserId(userId)
+	if err != nil {
+		fmt.Println("获取关注数失败")
+		return 0, err
+	}
+	fmt.Println("获取关注数成功")
 	return count, err
 }
 

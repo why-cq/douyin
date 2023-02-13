@@ -2,7 +2,7 @@ package main
 
 import (
 	"douyin/dao"
-	"douyin/pojo"
+	"github.com/gin-gonic/gin"
 	"log"
 )
 
@@ -18,17 +18,19 @@ func main() {
 	defer dao.Close()
 
 	// 模型绑定(运行后数据库中的表自动创建出来)
-	dao.DB.AutoMigrate(
-		&pojo.User{},
-		&pojo.Comment{},
-		&pojo.Like{},
-		&pojo.Follow{},
-		&pojo.Video{},
-	)
+	//dao.DB.AutoMigrate(
+	//	&pojo.User{},
+	//	&pojo.Comment{},
+	//	&pojo.Like{},
+	//	&pojo.Follow{},
+	//	&pojo.Video{},
+	//)
 
-	//// 注册路由
-	//r := routers.SetupRouter()
-	//// 默认端口8080
-	//r.Run("9000")
+	// 注册路由
+	r := gin.Default()
+	initRouter(r)
+
+	// 默认端口8080
+	r.Run()
 
 }

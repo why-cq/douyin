@@ -23,7 +23,21 @@ func CreatFollowInf(followDao FollowDao) error {
 }
 
 // 给定userId查询他关注了多少人
-func GetFollowersByUserId(userId int64) (int64, error) {
+func GetFansByUserId(userId int64) (int64, error) {
+	// 用来记录关注的人数
+	var count int64
+	err := DB.Model(FollowDao{}).
+		Where("follower_id = ? AND cancel = ?", userId, 0).
+		Count(&count).Error
+	if err != nil {
+		fmt.Println(err)
+		return 0, err
+	}
+	return count, nil
+
+}
+
+func GetFollowerCountByUserId(userId int64) (int64, error) {
 	// 用来记录关注的人数
 	var count int64
 	err := DB.Model(FollowDao{}).

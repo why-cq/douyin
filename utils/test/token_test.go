@@ -51,8 +51,9 @@ func TestValidateRegisteredClaims(t *testing.T) {
 }
 
 func TestGenerateToken(t *testing.T) {
-	token, err := utils.GenerateToken("why", "123456")
-	fmt.Println(token.Values)
+	token1, err := utils.GenerateToken("why", "123456")
+	token2, err := utils.GenerateToken("why", "123456")
+	fmt.Println(token1.Values == token2.Values)
 	fmt.Println(err)
 
 }

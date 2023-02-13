@@ -1,6 +1,9 @@
 package main
 
-import "github.com/gin-gonic/gin"
+import (
+	"douyin/controller"
+	"github.com/gin-gonic/gin"
+)
 
 func initRouter(r *gin.Engine) {
 	// public directory is used to serve static resources
@@ -10,18 +13,10 @@ func initRouter(r *gin.Engine) {
 	apiRouter := r.Group("/douyin")
 	{
 		//基础接口
-		apiRouter.GET("/feed/", func(context *gin.Context) {
-
-		})
-		apiRouter.GET("/user/", func(context *gin.Context) {
-
-		})
-		apiRouter.POST("/user/register/", func(context *gin.Context) {
-
-		})
-		apiRouter.POST("/user/login/", func(context *gin.Context) {
-
-		})
+		apiRouter.GET("/feed/", controller.Feed)
+		apiRouter.GET("/user/", controller.UserInfo)
+		apiRouter.POST("/user/register/", controller.Register)
+		apiRouter.POST("/user/login/", controller.Login)
 		apiRouter.POST("/publish/action/", func(context *gin.Context) {
 
 		})

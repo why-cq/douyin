@@ -19,8 +19,15 @@ func TestCreatFollowInf(t *testing.T) {
 	fmt.Println(err)
 }
 
+func TestGetFansByUserId(t *testing.T) {
+	count, err := dao.GetFansByUserId(1)
+	fmt.Println(count)
+	fmt.Println(err)
+
+}
+
 func TestGetFollowersByUserId(t *testing.T) {
-	count, err := dao.GetFollowersByUserId(2)
+	count, err := dao.GetFansByUserId(2)
 	fmt.Println(count)
 	fmt.Println(err)
 }

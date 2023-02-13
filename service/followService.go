@@ -7,4 +7,5 @@ type FollowService interface {
 	GetFollowersByUserId(userId int64) (int64, error)
 	GetFollowInf(userId int64, followId int64) (dao.FollowDao, error)
 	UpdateFollow(userId int64, followId int64) (bool, error)
+	GetFansByUserId(userId int64) (int64, error)
 }
